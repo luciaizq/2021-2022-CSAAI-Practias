@@ -1,4 +1,5 @@
 /* Propiedades de la caja del cuerpo */
+
 body {
     padding: 5px;  /* relleno */
     margin: 10px;  /* Margen */
@@ -8,8 +9,9 @@ body {
   
   /*  Propiedades de la caja del párrafo */
   p {
-    margin: 10px;
-    padding: 10px; /* Relleno */
+    margin: 5px;
+    padding: 5px; /* Relleno */
     border:solid;
     border-color: blue;
   }
+  

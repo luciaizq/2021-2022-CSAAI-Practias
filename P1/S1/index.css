@@ -1,0 +1,27 @@
+body {
+    background-color: lightpink; 
+    color:black;
+  }
+  h1  {
+    width: 260px;
+    margin: 10px 100px;
+    padding: 10px;
+    background-color:cyan;  
+    color: darkblue;
+    font-family: sans-serif;
+    font-size: 250%;
+    font-style: italic;
+  }
+  
+  p {
+    margin: 10px;
+    padding: 10px; /* Relleno */
+    border:solid;
+    border-color: blue;
+  }
+  li {
+    margin: 5px;
+    padding: 5px; /* Relleno */
+    border:solid;
+    border-color: blue;
+  }
