@@ -3,7 +3,7 @@ body {
     color:black;
   }
   h1  {
-    width: 260px;
+    width: 330px;
     margin: 10px 100px;
     padding: 10px;
     background-color:cyan;  
@@ -14,14 +14,15 @@ body {
   }
   
   p {
-    margin: 10px;
-    padding: 10px; /* Relleno */
-    border:solid;
-    border-color: blue;
-  }
-  li {
-    margin: 5px;
+    width: 350px;
+    margin: 10px 100px;
     padding: 5px; /* Relleno */
-    border:solid;
-    border-color: blue;
+    background-color:cyan;
+    text-align: center;
+  }
+  ul {
+    width: 350px;
+    margin: 10px 100px;
+    padding: 5px; /* Relleno */
+    background-color:cyan;
   }
