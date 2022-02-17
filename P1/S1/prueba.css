@@ -55,7 +55,7 @@ body{
   /*div con class*/
   .title{
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
     color: #ff0055;
     letter-spacing: 15px;
     font-family: 'Fuente';
@@ -64,10 +64,18 @@ body{
       margin-bottom: 0px;
   }
   .subt {
+    text-align: center;
+    background-color: rgba(252, 141, 196, 0.7);
+    margin: 8px;
+    padding: 10px;
+    border: 1px dashed #ff006a;
+    border-radius: 10px;
+    list-style-type: none;
+    padding-left: 10px;
     font-family: 'Fuente2';
     font-size:20px;
     color: #ff006a;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
   }
   /*div con id*/
   #foto{
