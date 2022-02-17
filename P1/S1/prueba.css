@@ -2,7 +2,7 @@
 body{
     margin: 10px;
     padding: 0;
-    background-image: url("giphy.gif");
+    background-image: url("corazon.gif");
     background-repeat: repeat;
     padding: 10px;
     border: none;
@@ -10,37 +10,44 @@ body{
   }
   /*Fuentes*/
   @font-face {
-    font-family: 'miFuente';
-    src: url(../fuentes/CookieMonster.ttf);
+    font-family: 'Fuente';
+    src: url(The\ Whisker.ttf);
   }
   @font-face {
-    font-family: 'miFuente2';
-    src: url(../fuentes/UnicornMagic.ttf);
+    font-family: 'Fuente2';
+    src: url(OldNewspaperTypes.ttf);
   }
+  @font-face {
+    font-family: 'Fuente3';
+    src: url(typewcond_regular.otf);
+  }
+  
   
   /*textos principales*/
   p{
-    background-color: rgba(231, 252, 253, 0.70);
-    font: italic 100% monospace;
+    background-color: rgba(252, 141, 196, 0.7);
+    font-family: 'Fuente3';
+    font-size: 20px;
     margin: 8px;
     padding: 15px;
-    border: 1px dashed #E733FF;
-    border-radius: 25px;
+    border: 1px dashed #ff0080;
+    border-radius: 10px;
   }
   h2{
-    color: #AB7BDA;
+    color: #ff0062;
     letter-spacing: 8px;
-    font-family: 'miFuente2';
+    font-family: 'Fuente2';
     font-size: 30px;
     margin-bottom: 0px
   }
   ul{
-    background-color: rgba(231, 252, 253, 0.70);
-    font: italic 100% monospace;
+    background-color: rgba(252, 141, 196, 0.7);
+    font-family: 'Fuente3';
+    font-size: 20px;
     margin: 8px;
     padding: 15px;
-    border: 1px dashed #E733FF;
-    border-radius: 25px;
+    border: 1px dashed #ff006a;
+    border-radius: 10px;
     list-style-type: none;
     text-align: left;
     padding-left: 50px;
@@ -49,17 +56,17 @@ body{
   .title{
     text-align: center;
     font-size: 30px;
-    color: #C61A8A;
+    color: #ff0055;
     letter-spacing: 15px;
-    font-family: 'miFuente';
+    font-family: 'Fuente';
   }
   .title h1{
       margin-bottom: 0px;
   }
   .subt {
-    font-family: 'miFuente2';
+    font-family: 'Fuente2';
     font-size:20px;
-    color: #AB7BDA;
+    color: #ff006a;
     padding-bottom: 30px;
   }
   /*div con id*/
@@ -67,7 +74,7 @@ body{
     padding-top: 17px;
   }
   .marco{
-    border-radius: 15px;
+    border-radius: 10px;
     width: 150px;
   }
   
@@ -76,40 +83,34 @@ body{
     float: right;
     text-align: center;
     width: 25%;
-    border-radius: 25px;
-    background-color: rgb(123,218,205,0.45);
+    border-radius: 10px;
+    background-color: rgba(179, 151, 255, 0.7);
     min-height: 70vh;
   }
-  .link a{
-    color: grey;
-  }
+  
   #izquierda{
     border-top: 25px;
     float: left;
     text-align: center;
     width: 73%;
-    border-radius: 25px;
-    background-color: rgb(123,218,205,0.45);
+    border-radius: 10px;
+    background-color: rgba(179, 151, 255, 0.7);
     min-height: 70vh;
   }
-  .galletas li{
-    list-style-image: url("cookie.png");
-    align-items: center;
-  }
+  
   .boton p1{
-      font-family: 'miFuente2';
-      color: #ffffff;
+      font-family: 'Fuente2';
+      color: #ff0055;
   }
   .boton button{
-    text-decoration: none;
     padding: 5px;
     font-weight: 500;
     font-size: 20px;
-    color: #ffffff;
-    background-color: #C61A8A;
-    border-radius: 10%;
+    color: #ff0055;
+    background-color: rgba(179, 151, 255, 0.7);
+    border-radius: 10px;
     border:none;
-    font-family: 'miFuente2';
+    font-family: 'Fuente2';
     margin-top: 20px;
     margin-bottom: 45px;
   }
