@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'Fuente';
+  src: url(OldNewspaperTypes.ttf);
+}
+body{
+  padding: 0px;
+  margin-left: 180px;
+  margin-right: 180px;
+  margin-top: 200px;
+  font-family: 'Fuente';
+  background-image: url(papel.jpg);
+}
+
+.carcasa{
+  background-color: rgba(255, 80, 80,0.8);
+  width: 520px;
+  height: 500px;
+  margin: auto;
+  margin-top: 30px;
+  text-align: center;
+  border-radius: 20px;
+  border-color: rgba(255, 255, 255,0.3);
+  margin-top: 0px;
+  border-style: solid;
+}
+#resultado{
+  background-color: rgba(255, 255, 255,0.3);
+  padding: 9px;
+}
+#display{
+  background-color: rgba(255, 255, 255,1);
+  padding: 9px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+h2{
+  font-size: 80px;
+  text-align: center;
+  color: #eeb5d1;
+  margin: 0px;
+  letter-spacing: 2px;
+  text-shadow: -3px -3px 3px #ff0080, 3px -3px 3px #641646, -3px 3px 3px #4f067a, 3px 3px 3px #4f067a;
+}
+.botones{
+  column-count: 4;
+  margin-top: 20px;
+}
+button{
+  transition-duration: 0.9s;
+  border-radius: 10px;
+  width: 80px;
+  height: 70px;
+  margin: 2px;
+  padding: 15px 24px;
+  font-size: 20px;
+  border: none;
+  font-family: 'miFuente2';
+  background-color: #e8f3f3;
+}
+.botones button:hover{ /*le da la sombra a los botones */
+  background-color: #800000;
+  color: white;
+}
