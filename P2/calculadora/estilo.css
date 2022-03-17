@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Fuente';
-  src: url(OldNewspaperTypes.ttf);
+  src: url(Sweet\ Kiss.ttf);
 }
 body{
   padding: 0px;
@@ -8,56 +8,59 @@ body{
   margin-right: 180px;
   margin-top: 200px;
   font-family: 'Fuente';
-  background-image: url(papel.jpg);
+  background-image: url(corazon.gif);
 }
 
 .carcasa{
-  background-color: rgba(255, 80, 80,0.8);
-  width: 520px;
-  height: 500px;
+  background-color: rgba(248, 16, 113, 0.8);
+  width: 500px;
+  height: 550px;
   margin: auto;
-  margin-top: 30px;
+  margin-top: -10px;
   text-align: center;
-  border-radius: 20px;
-  border-color: rgba(255, 255, 255,0.3);
-  margin-top: 0px;
+  border-radius: 15px;
+  border-color: rgba(253, 3, 120, 0.973);
   border-style: solid;
+  padding: 1px;
+  
 }
 #resultado{
-  background-color: rgba(255, 255, 255,0.3);
-  padding: 9px;
+  background-color: rgba(247, 22, 108, 0.863);
+  padding: 5px;
 }
 #display{
-  background-color: rgba(255, 255, 255,1);
-  padding: 9px;
-  font-size: 20px;
-  letter-spacing: 2px;
+  background-color: rgb(184, 244, 247);
+  padding: 6px;
+  font-size: 35px;
+  letter-spacing: 3px;
 }
 h2{
-  font-size: 80px;
+  font-size: 100px;
   text-align: center;
-  color: #eeb5d1;
-  margin: 0px;
-  letter-spacing: 2px;
-  text-shadow: -3px -3px 3px #ff0080, 3px -3px 3px #641646, -3px 3px 3px #4f067a, 3px 3px 3px #4f067a;
+  color: rgb(184, 244, 247);/*relleno letra palabra calculadora */
+  margin: 8px;
+  letter-spacing: 8px;
+  text-shadow: -10px -10px 10px #ff006a, 5px -5px 5px #ff006a, -10px 10px 10px #060607, 5px 5px 5px #050405;/*le da sombra y desgradado*/
+  
 }
 .botones{
+  margin-top: 10px;
   column-count: 4;
-  margin-top: 20px;
 }
 button{
-  transition-duration: 0.9s;
-  border-radius: 10px;
+  transition-duration: 0.5s;
+  border-radius: 15px;
   width: 80px;
   height: 70px;
   margin: 2px;
   padding: 15px 24px;
-  font-size: 20px;
-  border: none;
-  font-family: 'miFuente2';
-  background-color: #e8f3f3;
+  font-size: 35px;
+  border-color: rgba(253, 3, 120, 0.973);
+  border-style: solid;
+  font-family: 'Fuente';
+  background-color: rgb(184, 244, 247);
 }
-.botones button:hover{ /*le da la sombra a los botones */
-  background-color: #800000;
-  color: white;
+.botones button:hover{ /*pone el color más oscuro cuando se pasa el ratón por encima */
+  background-color: #ff0f57;
+  color: rgb(184, 244, 247);
 }
