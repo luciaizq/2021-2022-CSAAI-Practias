@@ -1,0 +1,34 @@
+/* Estilo del canvas
+  Lo bordeamos con una línea negra y le damos fondo
+  azul para distinguirlo
+*/
+@font-face {
+    font-family: 'Fuente';
+    src: url(The\ Whisker.ttf);
+  }
+.title{
+    margin-top: 1px;
+    text-align: center;
+    font-size: 40px;
+    color: #ff0055;
+    letter-spacing: 15px;
+    font-family: 'Fuente';
+    text-shadow: -10px -10px 10px #0c0c0c, 5px -5px 5px #0a0a0a, -10px 10px 10px #060607, 5px 5px 5px #050405;
+  }
+body{
+    padding: 0px;
+    margin-left: 600px;
+    margin-right: 600px;
+    margin-top: 10px;
+    font-family: 'Fuente';
+    background-image: url(corazon.gif);
+  }
+
+#canvas {
+    margin:0 auto;
+    background-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    /*border-radius: 5px;*/
+  }
