@@ -1,0 +1,35 @@
+
+@font-face{
+    font-family: mifuente;
+    src: url('The\ Whisker.ttf');
+  }
+  
+  body {
+    background-image: url("tetris.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    color: rgb(255, 255, 255);
+    font-family: mifuente;
+    font-size: 350%;
+    text-align: center;
+  
+  }
+  canvas {
+      background-color: rgba(255, 0, 98, 0.75);
+      margin-left: 33%;
+      border-style: solid;
+      border-width: 5px;
+      border-color: rgb(0, 0, 0);
+      border-radius: 5px;
+      font-family: mifuente;
+    }
+  
+    h2{
+      
+      color: rgb(255, 0, 85);
+      text-shadow: -10px -10px 10px #0c0c0c, 5px -5px 5px #0a0a0a, -10px 10px 10px #060607, 5px 5px 5px #050405;
+      letter-spacing: 15px;
+  
+    }
