@@ -5,14 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js" defer></script>
-    <script src="crono.js"></script>
     <link rel="stylesheet" href="index.css">
     <title>Videojuego</title>
 </head>
 <body>
-    <p id="display">0:0:0</p>
-    <button type="button" id="start">Start</button>
-    <h2>Videojuego</h2>
+    <img src="gameover.png"id="gameover">
+    <img src="win.png" id="win">
+
+    <h2>Breakout</h2>
+    
     <canvas id="canvas"></canvas>
+    <div>
+        <h3>Objetivo:</h3>
+        <p>Eliminar todos los bloques.</p>
+        <h3>Controles:</h3>
+        <p>Espacio para sacar</p>
+        <p>Flechas para moverte hacia los lados</p>
+    </div>
+    <p>
+        <button id="play" value="Actualizar" onclick="location.reload()">Play again</button>
+    </p>
+    
 </body>
-</html>   
+</html>

@@ -1,218 +1,236 @@
-console.log('Ejecutando JS del Breakout...');
-//-- Elementos de la gui
-const gui = {
-    display : document.getElementById("display"),
-    start : document.getElementById("start"),
-    
-}
-
-console.log("Ejecuitando JS...");
-
-//-- Definir un objeto cronómetro
-const crono = new Crono(gui.display);
-
-//---- Configurar las funciones de retrollamada
-
-//-- Arranque del cronometro
-gui.start.onclick = () => {
-    console.log("Start!!");
-    crono.start();
-}
-  
-
+//definimos canvas
 const canvas = document.getElementById("canvas");
 
-//-- Defino el tamaño del canvas
-canvas.width = 600;
-canvas.height = 700;
+canvas.width = 520;
+canvas.height = 450;
 
-//-- Obtengo el contexto del canvas
 const ctx = canvas.getContext("2d");
+izq = document.getElementById("izq");
+der = document.getElementById("der");
 
-//-- Variables
-var ballSize = 15;
-var paddleHeight = 20;
-var paddleWidth = 100;
-var paddle = (canvas.width - paddleWidth)/2;
-var rightPressed = false;
-var leftPressed = false;
-    // Estado del juego
-var inProcess = false;
-//ladrillos
-const BRICK = {
-    rows: 7, 
-    columns: 10,
-    width: 50,
-    height: 20,
-    padding: 8,
-    marginTop: 60,
-    marginLeft: 15,
-    show: true
+//Definimos los ladrillos
+const LADRILLO = {
+    F: 5,
+    C: 13,
+    w: 38,
+    h: 20,
+    padding: 2,
+    visible: true,
+
 };
+const perder = new Audio('perder.mp3');
+const victoria = new Audio('victoria.mp3');
 
-let x = canvas.width/2;
-let y = canvas.height-190;
-let velx = 4;
-let vely = 3;
-let scores = 0;
-let lifes = 3;
+const ladrillos = [];
 
-//-- Sonidos
-const playing = new Audio("playing.mp3");
-const point = new Audio("punto.mp3");
-const touch = new Audio("rebote.mp3");
-const gameover = new Audio("gameover.mp3");
-const fail = new Audio("fallo.mp3");
-const win = new Audio("victoria.mp3");
-
-//-- Dibujo pelota
-function drawBall() {
-    ctx.beginPath();
-        ctx.arc(x, y, ballSize, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba(0, 38, 255, 0.75)';
-        ctx.fill();
-    ctx.closePath();
-}
-
-//-- Dibujo raqueta
-function drawPaddle() {
-    ctx.beginPath();
-        ctx.rect(paddle, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-        ctx.fillStyle = 'rgba(0, 38, 255, 0.75)';
-        ctx.fill();
-    ctx.closePath();
-    booleanPaddle();
-}
-
-//-- Estado teclas raqueta y saque
-function booleanPaddle() {
-    window.onkeydown = (e) => {
-        if (e.keyCode == 39) {
-            rightPressed = true;
-        } else if (e.keyCode == 37) {
-            leftPressed = true;
-        } else if (e.keyCode == 32 ) {
-            inProcess = true;
-            // Sacar con barra espaciadora
-        }
+for (let i = 0; i < LADRILLO.F; i++){
+    ladrillos[i] = [];
+    for (let j = 0; j < LADRILLO.C; j++){
+        ladrillos[i][j] = {
+            x: (LADRILLO.w + LADRILLO.padding) * j,
+            y: 40 + (LADRILLO.h + LADRILLO.padding) * i,
+            w: LADRILLO.w,
+            h: LADRILLO.h,
+            padding: LADRILLO.padding,
+            visible: LADRILLO.visible
+        };
     }
-    window.onkeyup = (e) => {
-        if (e.keyCode == 39) {
-            rightPressed = false;
-        }
-        else if(e.keyCode == 37) {
-            leftPressed = false;
-        } 
-    }
-}
 
-//-- Implemento ladrillos en matriz bidimensional
-var bricks = [];
-for (i=0; i<BRICK.columns; i++) {
-    bricks[i] = [];
-    for(j=0; j<BRICK.rows; j++) {
-        bricks[i][j] = {
-            x: (i*(BRICK.width+BRICK.padding))+BRICK.marginLeft,
-            y: (j*(BRICK.height+BRICK.padding))+BRICK.marginTop,
-            visible: BRICK.show
-        };  // Asocio a cada ladrillo su posición y su visibilidad (true)
     }
-}
-
-//-- Dibujo ladrillos
-function drawBricks() {
-    for(i=0; i<BRICK.columns; i++) {
-        for(j=0; j<BRICK.rows; j++) {
-            if(bricks[i][j].visible){
-              ctx.beginPath();
-                ctx.rect(bricks[i][j].x, bricks[i][j].y, BRICK.width, BRICK.height);
-                ctx.fillStyle = 'rgba(0, 38, 255, 0.75)';
+    //dibujo ladrillos
+function drawLadrillos() {
+    for (let i = 0; i < LADRILLO.F; i++) {
+        for (let j = 0; j < LADRILLO.C; j++){
+            if (ladrillos[i][j].visible) {
+                ctx.beginPath();
+                ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.w, LADRILLO.h);
+                ctx.fillStyle = "rgb(68, 255, 0)";
                 ctx.fill();
-            ctx.closePath();  
-            }       
-        }
-    }
-}
-
-//-- Detecto colisiones 
-function collisions() {
-    for(i=0; i<BRICK.columns; i++) {
-        for(j=0; j<BRICK.rows; j++) {
-            var l = bricks[i][j];
-            if(l.visible == true) {
-                if(x > l.x && x < l.x + BRICK.width && y > l.y && y < l.y + BRICK.height) {
-                    vely = -vely;
-                    l.visible = false;
-                    point.play();
-                    scores += 1;
-                    console.log(scores);
-                    if (scores == 70) {
-                        win.play();
-                        alert('¡HAS GANADO');
-                        document.location.reload();
-                    }
-                }
+                ctx.closePath();
             }
         }
     }
 }
+// colision de bola con el ladrillo
+function colisionLadrillo(){
+    for(let i = 0; i < LADRILLO.F; i++){
+        for (let j = 0; j < LADRILLO.C; j++){
+            if(ladrillos[i][j].visible == true){
+                if(ball.x >= ladrillos[i][j].x &&
+                   ball.x <= ladrillos[i][j].x + LADRILLO.w &&
+                   ball.y >= ladrillos[i][j].y &&
+                   ball.y <= ladrillos[i][j].y + LADRILLO.h)
+                   {
+                       
+                       ball.dy = -ball.dy;
+                       ladrillos[i][j].visible = false; //desaparece el ladrillo colisionado
+                       score = score + 1;
+                       
+                    } 
+                   
+            }
+        }
+    }
 
-//-- Mostrar puntuación y vidas
-function drawPoints() {
-    ctx.font = "50px mifuente";
-    ctx.fillStyle = 'black';
-    ctx.fillText("Puntuación: " + scores, 20, 40);
-    ctx.fillText("Vidas: " + lifes, 450, 40);
 }
 
-//-- Movimientos del juego
-function move() {
-    console.log('Pelota en mvto...');
+let speed = 4; // velocidad bola
+let vidas = 3; // vidas
+let score = 0; // puntuación
+
+let rightPressed = false;
+let leftPressed = false;
+
+document.addEventListener("keydown", keyDownHandler);
+document.addEventListener("keyup", keyUpHandler);
+
+// definimos la bola
+let ball = {
+    x: canvas.width /2,
+    y: canvas.height - 50,
+    dx: 0,
+    dy: 0,
+    radius: 7,
+    draw: function() {
+        ctx.beginPath();
+          ctx.fillStyle = "rgb(0, 0, 255)";
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+          ctx.closePath();
+        ctx.fill();
+    }
+};
+// pulsando espacio se mueve la pelota
+window.onkeydown = (e) => {
+    if (e.keyCode == 32){
+        ball.dx = speed;
+        ball.dy = -speed +1
+        
+        
+    } 
+}
+// definimos la raqueta
+let raqueta = {
+    width: 60,
+    height: 10,
+    x: canvas.width /2 - 30,
+    draw: function(){
+        ctx.beginPath();
+        ctx.rect(this.x, canvas.height - this.height - 10, this.width, this.height);
+        ctx.fillStyle = "rgb(0, 0, 255)";
+        ctx.closePath();
+        ctx.fill();
+    }
+};
+// movimiento de la raqueta con las flechas
+function keyDownHandler(e) {
+    if (e.key == "Right" || e.key == "ArrowRight") {
+      rightPressed = true;
+    }
+    if (e.key == "Left" || e.key == "ArrowLeft") {
+      leftPressed = true;
+    }
+  }
+
+  function keyUpHandler(e) {
+    if (e.key == "Right" || e.key == "ArrowRight") {
+      rightPressed = false;
+    }
+    if (e.key == "Left" || e.key == "ArrowLeft") {
+      leftPressed = false;
+    }
+  }
+
+  function moveRaqueta(){
+      if(rightPressed){
+          raqueta.x += 7;
+          //limite derecha
+          if(raqueta.x + raqueta.width >= canvas.width){
+              raqueta.x = canvas.width - raqueta.width;
+          }
+      }
+      if(leftPressed){
+          raqueta.x -= 7;
+          //limite izq
+          if(raqueta.x < 0){
+              raqueta.x = 0;
+          }
+      }
+  }
+//funcion principal
+function play(){
+    document.getElementById("win").style.display = "none";
+    document.getElementById("gameover").style.display = "none";
+    document.getElementById("play").style.display = "none";
+    //rebote pelota
+    if (ball.x <0 || ball.x >= canvas.width - 7) {
+        ball.dx = -ball.dx;
+      }
+    
+      if (ball.y <0) {
+        ball.dy = -ball.dy;
+      }
+      //perdida de vida
+    if (ball.y >= canvas.height) {
+        vidas = vidas -1;
+        ball.x = canvas.width /2;
+        ball.y = canvas.height -50;
+        ball.dx = 0;
+        ball.dy = 0;
+        // game over
+        }else if (vidas == 0){
+            perder.play();
+            document.getElementById("canvas").style.display = "none";
+            document.getElementById("gameover").style.display = "";
+            document.getElementById("play").style.display = "";
+            console.log("has perdido");
+            stopAudio();
+         //victoria   
+        } else if (score == 65){
+            ball.dx = 0;
+            ball.dy = 0;
+            speed = 0;
+            victoria.play();
+            document.getElementById("canvas").style.display = "none";
+            document.getElementById("win").style.display = "block";
+            document.getElementById("play").style.display = "";
+            console.log("has ganado");
+            stopAudio();
+        }
+    
+    
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBricks();
-    drawBall();
-    drawPaddle();
-    drawPoints();
-    collisions();
 
-    if (inProcess) {
-        setInterval(playing.play(), 500);
-        if (x < ballSize || x >= (canvas.width - ballSize)) {
-            velx = -velx;
-        }
-        if (y <= ballSize) {
-            vely = -vely;
-        } else if (y > (canvas.height - ballSize)) {
-            if (x > paddle && x < paddle + paddleWidth) {
-                vely = -vely;   // En caso de rebotar en la raqueta
-                touch.play();
-            } else {            // En caso de tocar el suelo
-                fail.play();
-                lifes = lifes - 1;
-                if (lifes <= 0) {
-                    gameover.play();
-                    alert("GAME OVER!");
-                    document.location.reload();
-                } else {
-                    inProcess = false;
-                    x = canvas.width/2;
-                    y = canvas.height-190;
-                    velx = 4;
-                    vely = 2;
-                    paddle = (canvas.width - paddleWidth)/2;
-                }
-            }
-        }
-        if(rightPressed && paddle < canvas.width - paddleWidth) {
-            paddle = paddle + 7;
-        } else if(leftPressed && paddle > 0) {
-            paddle = paddle - 7;
-        }
+    ctx.strokeStyle = 'rgb(0, 0, 255)';
+    ctx.font = "mifuente";
+    ctx.strokeText("VIDAS: " + vidas , 10, 20);
+    
 
-        x = x + velx;
-        y = y + vely;
-    }
-    requestAnimationFrame(move);
+    ctx.strokeStyle = 'rgb(0, 0, 255)';
+    ctx.font = "mifuente";
+    ctx.strokeText("SCORE: " + score , 450, 20);
+
+    ball.draw();
+    raqueta.draw();
+    moveRaqueta();
+    drawLadrillos();
+    colisionLadrillo();
+
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+   // angulo de colision con la raqueta
+    if (ball.x >= raqueta.x && ball.x <= raqueta.x + raqueta.width &&
+         ball.y + ball.radius >= canvas.height - raqueta.height - 10) {
+             let collidePoint = ball.x - (raqueta.x + raqueta.width/2);
+             collidePoint = collidePoint / (raqueta.width/2);
+             let angle = collidePoint * Math.PI/3;
+             ball.dx = speed * Math.sin(angle);
+             ball.dy = -speed * Math.cos(angle);
+         }
+    
+    
+
+    requestAnimationFrame(play);
+
+
 }
-
-move();
+play();

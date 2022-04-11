@@ -1,35 +1,61 @@
-
 @font-face{
     font-family: mifuente;
-    src: url('The\ Whisker.ttf');
+    src: url('Valentine\ Cute.ttf');
   }
-  
-  body {
-    background-image: url("tetris.jpg");
-    background-position: center;
+
+
+body{
+    background-image: url(fondo.jpg);
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    color: rgb(255, 255, 255);
+    background-size: 178% 140%;
+    
+    
+}
+canvas{
+    background-color: rgb(255, 0, 115);
+    border-style: solid;
+    border-color: rgb(72, 0, 255);
+    border-width: 5px;
+    border-radius: 1px;
+    margin-top: 2%;
+    
+    margin-left: 30%;
     font-family: mifuente;
-    font-size: 350%;
+}
+
+#gameover{
+    margin-left: 20%;
+    margin-top: 150px;
+}
+
+#win{
+    margin-left: 25%;
+    margin-top: 150px;
+}
+
+#play{
+    margin-bottom: 50px;
+    margin-left: 45%;
+}
+h2{
     text-align: center;
-  
+    color: rgb(255, 4, 134);
+    text-shadow: -8px -8px 8px rgb(1, 1, 53), 3px -3px 3px rgb(0, 0, 255), -3px 3px 3px rgb(0, 0, 255), 3px 3px 3px rgb(0, 0, 255);
+    font-family: mifuente;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    font-size: 300%;
+
   }
-  canvas {
-      background-color: rgba(255, 0, 98, 0.75);
-      margin-left: 33%;
-      border-style: solid;
-      border-width: 5px;
-      border-color: rgb(0, 0, 0);
-      border-radius: 5px;
-      font-family: mifuente;
-    }
-  
-    h2{
-      
-      color: rgb(255, 0, 85);
-      text-shadow: -10px -10px 10px #0c0c0c, 5px -5px 5px #0a0a0a, -10px 10px 10px #060607, 5px 5px 5px #050405;
-      letter-spacing: 15px;
-  
-    }
+
+  h3{
+    color: rgb(255, 4, 134);
+    text-shadow: -8px -8px 8px rgb(1, 1, 53), 3px -3px 3px rgb(0, 0, 255), -3px 3px 3px rgb(0, 0, 255), 3px 3px 3px rgb(0, 0, 255);
+    font-size: 150%;
+  }
+  div {
+    font-family: 'mifuente';
+    margin-top: -300px;
+    padding: 2px;
+    font-size: 100%
+}
