@@ -1,0 +1,53 @@
+body {
+  background-color: black;
+  text-align: center;
+}
+
+.ventana{
+  column-count: 2;
+  text-align:center;
+}
+
+h1{
+  color:#f27d0e;
+  font-size: 80px;
+  font-family: 'miFuente2';
+  letter-spacing: 6px;
+}
+h2{
+  color: #f20e45;
+  font-size: 20px;
+  font-family: 'miFuente2';
+  letter-spacing: 6px;
+}
+
+span{
+    font-family: sans-serif;
+    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    text-align: right;
+    font-family: 'miFuente2';
+    letter-spacing: 2px;
+}
+@font-face {
+  font-family: 'miFuente2';
+  src: url(waltograph42.otf);
+}
+button{
+    background-color:#eab660;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 10%;
+    border:none;
+    font-size: 25px;
+    margin: 13px 12px 30px 20px;
+    font-family: 'miFuente2';
+    letter-spacing: 3px;
+}
+
+.control{
+  margin-top: 50px;
+}
