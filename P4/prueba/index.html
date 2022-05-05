@@ -1,15 +1,13 @@
-ines (35 sloc)  1.11 KB
-  
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Práctica 4</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="p4.js"></script>
+    <link rel="stylesheet" href="prueba1.css">
+    <script src="prueba1.js"></script>
   </head>
   <h1>Práctica 4</h1>
-  <body onload="main();">
+  <body>
     <div class="ventana">
       <h2>Imagen original</h2>
       <img src="p4.jpeg" id="imagesrc">
@@ -21,8 +19,11 @@ ines (35 sloc)  1.11 KB
     <div class="control">
       <button type="button" id="grises">grises</button>
       <button type="button" id="colores">colores</button>
+      <button type="button" id="espejo">espejo</button>
+    </div>
       
       <br>
+      <div id="deslizadores">
       <span class="color">Red:  </span>
       <input type="range" id="deslizadorR" min="0" max="255" value="255"/>
       <span id="range_valueR">255</span>
