@@ -46,6 +46,15 @@ function main() {
       }
       ctx.putImageData(imagGrey, 0, 0);
   }
+  //boton espejo
+  espejo = document.getElementById('espejo');
+  espejo.onclick = () => {
+      ctx.drawImage(img, 0,0);
+      ctx.translate(2*(img.width)/2,0);
+      ctx.scale(-1,1);
+      ctx.drawImage(img, 0,0);
+  }
+
   
 
   function umbral(){
