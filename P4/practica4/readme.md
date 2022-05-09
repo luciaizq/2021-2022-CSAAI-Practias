@@ -1,3 +1,4 @@
+PRÁCTICA 4
 A la  imagen original se le aplicará un filtro, que se seleccionará entre tres filtros disponibles y se generará una segunda imagen con el resultado.
 Los filtros se seleccionarán mediante dos botones.
 
